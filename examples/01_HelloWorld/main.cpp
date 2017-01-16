@@ -1,11 +1,9 @@
 #include "SpellChecker.h"
 #include <iostream>
 
-using typopoi::SpellChecker;
-
 int main()
 {
-    SpellChecker spellChecker;
+    typopoi::SpellChecker spellChecker;
     spellChecker.AddWord(u8"hello");
     spellChecker.AddWord(u8"world");
 

@@ -3,8 +3,6 @@
 #include <fstream>
 #include <functional>
 
-using typopoi::SpellChecker;
-
 bool ReadDictionaryFile(
     const std::string& path,
     const std::function<void(const std::string&)>& callback)
@@ -43,7 +41,7 @@ int main()
     // NOTE: Please specify your dictionary file
     std::string filePath = "MyDictionary.txt";
 
-    SpellChecker spellChecker;
+    typopoi::SpellChecker spellChecker;
 
     // NOTE: Construct a dictionary from the file
     auto addWord = [&](const std::string& word) {
