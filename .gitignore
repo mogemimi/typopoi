@@ -3,6 +3,13 @@
 *.so
 .DS_Store
 
+## Build results for Xcode
+projects/build/
+
+## Build results for Visual Studio
+projects/**/[Dd]ebug/
+projects/**/[Rr]elease/
+
 ## CMake
 CMakeCache.txt
 CMakeFiles
@@ -25,6 +32,8 @@ install_manifest.txt
 *.userosscache
 .vs/
 ipch/
+*.VC.db
+*.VC.VC.opendb
 
 ## Xcode
 *.pbxuser
