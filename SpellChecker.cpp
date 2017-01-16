@@ -9,10 +9,95 @@
 #include <string>
 #include <unordered_map>
 #include <utility>
-#include <experimental/optional>
 
 namespace typopoi {
 namespace {
+
+struct nullopt_t final {
+    struct init { constexpr init() = default; };
+    constexpr explicit nullopt_t(init) noexcept {}
+};
+constexpr nullopt_t nullopt{ nullopt_t::init{} };
+
+template <typename T>
+struct optional {
+private:
+    T data;
+    bool valid = false;
+
+public:
+    constexpr optional() : data(), valid(false) {}
+    constexpr optional(const nullopt_t&) : data(), valid(false) {}
+    optional(const optional&) = default;
+    optional(optional &&) = default;
+    constexpr optional(const T& v) : data(v), valid(true) {}
+    constexpr optional(T && v) : data(std::move(v)), valid(true) {}
+
+    optional & operator=(const nullopt_t&)
+    {
+        valid = false;
+        data.~T();
+        return *this;
+    }
+
+    optional & operator=(const optional&) = default;
+    optional & operator=(optional &&) = default;
+
+    optional & operator=(const T& v)
+    {
+        this->valid = true;
+        this->data = v;
+        return *this;
+    }
+
+    optional & operator=(T && v)
+    {
+        this->valid = true;
+        this->data = std::move(v);
+        return *this;
+    }
+
+    T const* operator->() const noexcept
+    {
+        assert(valid);
+        return &data;
+    }
+
+    T* operator->() noexcept
+    {
+        assert(valid);
+        return &data;
+    }
+
+    const T& operator*() const
+    {
+        assert(valid);
+        return data;
+    }
+
+    T & operator*()
+    {
+        assert(valid);
+        return data;
+    }
+
+    explicit operator bool() const noexcept
+    {
+        return valid;
+    }
+
+    T const& value() const
+    {
+        assert(valid);
+        return data;
+    }
+
+    T & value()
+    {
+        assert(valid);
+        return data;
+    }
+};
 
 struct SignatureHashAlphabet {
     static constexpr uint32_t MaxHashLength = 28;
@@ -245,7 +330,7 @@ std::size_t ComputeGapSize(std::size_t a, std::size_t b)
 
 struct SpellSuggestion {
     std::u32string word;
-    std::experimental::optional<double> similarity;
+    typopoi::optional<double> similarity;
 };
 
 struct SpellCheckResultInternal {
@@ -475,7 +560,7 @@ SpellCheckResultInternal SpellCheckBySignatureHashing(
 }
 
 template <class SignatureHashing>
-std::experimental::optional<SpellSuggestion> ExistWordBySignatureHashing(
+typopoi::optional<SpellSuggestion> ExistWordBySignatureHashing(
     const std::u32string& input,
     const std::unordered_map<uint32_t, std::vector<std::u32string>>& hashedDictionary)
 {
@@ -493,11 +578,11 @@ std::experimental::optional<SpellSuggestion> ExistWordBySignatureHashing(
 
     auto iter = hashedDictionary.find(inputSignatureHash);
     if (iter == std::end(hashedDictionary)) {
-        return std::experimental::nullopt;
+        return typopoi::nullopt;
     }
     const auto& dictionary = iter->second;
 
-    std::experimental::optional<SpellSuggestion> currentSuggestion;
+    typopoi::optional<SpellSuggestion> currentSuggestion;
 
     for (auto & word : dictionary) {
         const auto gapSize = ComputeGapSize(word.size(), inputWordSize);
