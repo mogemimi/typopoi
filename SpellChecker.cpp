@@ -783,6 +783,13 @@ void SeparateWords(
 
         SpellSuggestion result;
         result.word = prefixSuggestion->word + U" " + suffixSuggestion->word;
+        result.similarity = ClosestMatchSimilarity(word, result.word);
+
+        const auto sizeAsDouble = static_cast<double>(word.size());
+        double similarityThreshold = std::max((sizeAsDouble - std::min(sizeAsDouble, 2.0)) / sizeAsDouble, 0.8);
+        if (*result.similarity < similarityThreshold) {
+            continue;
+        }
 
         suggestions.push_back(std::move(result));
     }
@@ -933,7 +940,6 @@ void ParseIdentifier(
         auto result1 = SuggestLetterCase<SignatureHashing>(p.word, hashedDictionary);
         if (result1.correctlySpelled) {
             concatenate(p.word);
-            misspellingFound = true;
             continue;
         }
         exactMatching = false;
@@ -959,16 +965,22 @@ void ParseIdentifier(
         }
     }
 
+    result.correctlySpelled = exactMatching;
     if (!misspellingFound) {
         return;
     }
 
+    const auto sizeAsDouble = static_cast<double>(word.size());
+    double similarityThreshold = std::max((sizeAsDouble - std::min(sizeAsDouble, 2.0)) / sizeAsDouble, 0.8);
     for (auto & cs : concatSuggestions) {
         SpellSuggestion suggestion;
         suggestion.word = cs;
+        suggestion.similarity = ClosestMatchSimilarity(word, suggestion.word);
+        if (*suggestion.similarity < similarityThreshold) {
+            continue;
+        }
         result.suggestions.push_back(std::move(suggestion));
     }
-    result.correctlySpelled = exactMatching;
 }
 
 using SignatureHashing = SignatureHashAlphabet;

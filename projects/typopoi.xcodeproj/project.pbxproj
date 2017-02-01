@@ -8,12 +8,65 @@
 
 /* Begin PBXBuildFile section */
 		A9AB7EA21E28024200E3D1A6 /* SpellChecker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AB7EA01E28024200E3D1A6 /* SpellChecker.cpp */; };
+		A9C07C921E2B4A4000B70D8A /* ConsoleColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9C07C891E2B4A4000B70D8A /* ConsoleColor.cpp */; };
+		A9C07C931E2B4A4000B70D8A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9C07C8B1E2B4A4000B70D8A /* main.cpp */; };
+		A9C07C941E2B4A4000B70D8A /* Typo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9C07C8C1E2B4A4000B70D8A /* Typo.cpp */; };
+		A9C07C951E2B4A4000B70D8A /* WordDiff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9C07C8E1E2B4A4000B70D8A /* WordDiff.cpp */; };
+		A9C07C961E2B4A4000B70D8A /* WordSegmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9C07C901E2B4A4000B70D8A /* WordSegmenter.cpp */; };
+		A9C07C971E2B4A5000B70D8A /* libtypopoi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9AB7E851E27A03D00E3D1A6 /* libtypopoi.a */; };
+		A9C07C9B1E2B4AF300B70D8A /* ConvertUTF.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C07C991E2B4AF300B70D8A /* ConvertUTF.c */; };
+		A9C07C9E1E2B4B5200B70D8A /* FileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9C07C9C1E2B4B5200B70D8A /* FileSystem.cpp */; };
+		A9C07CA11E2B4B5B00B70D8A /* CommandLineParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9C07C9F1E2B4B5B00B70D8A /* CommandLineParser.cpp */; };
+		A9C07CA61E2B4BC600B70D8A /* StringHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9C07CA41E2B4BC600B70D8A /* StringHelper.cpp */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9C07CA81E2B559A00B70D8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9AB7E2C1E279EFE00E3D1A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9AB7E841E27A03D00E3D1A6;
+			remoteInfo = libtypopoi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A9C07C7F1E2B409300B70D8A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A9AB7E851E27A03D00E3D1A6 /* libtypopoi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtypopoi.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9AB7EA01E28024200E3D1A6 /* SpellChecker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpellChecker.cpp; path = ../SpellChecker.cpp; sourceTree = "<group>"; };
 		A9AB7EA11E28024200E3D1A6 /* SpellChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpellChecker.h; path = ../SpellChecker.h; sourceTree = "<group>"; };
+		A9C07C811E2B409300B70D8A /* typopoi */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = typopoi; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9C07C891E2B4A4000B70D8A /* ConsoleColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConsoleColor.cpp; path = ../tools/typopoi/sources/ConsoleColor.cpp; sourceTree = "<group>"; };
+		A9C07C8A1E2B4A4000B70D8A /* ConsoleColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConsoleColor.h; path = ../tools/typopoi/sources/ConsoleColor.h; sourceTree = "<group>"; };
+		A9C07C8B1E2B4A4000B70D8A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../tools/typopoi/sources/main.cpp; sourceTree = "<group>"; };
+		A9C07C8C1E2B4A4000B70D8A /* Typo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Typo.cpp; path = ../tools/typopoi/sources/Typo.cpp; sourceTree = "<group>"; };
+		A9C07C8D1E2B4A4000B70D8A /* Typo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Typo.h; path = ../tools/typopoi/sources/Typo.h; sourceTree = "<group>"; };
+		A9C07C8E1E2B4A4000B70D8A /* WordDiff.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WordDiff.cpp; path = ../tools/typopoi/sources/WordDiff.cpp; sourceTree = "<group>"; };
+		A9C07C8F1E2B4A4000B70D8A /* WordDiff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WordDiff.h; path = ../tools/typopoi/sources/WordDiff.h; sourceTree = "<group>"; };
+		A9C07C901E2B4A4000B70D8A /* WordSegmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WordSegmenter.cpp; path = ../tools/typopoi/sources/WordSegmenter.cpp; sourceTree = "<group>"; };
+		A9C07C911E2B4A4000B70D8A /* WordSegmenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WordSegmenter.h; path = ../tools/typopoi/sources/WordSegmenter.h; sourceTree = "<group>"; };
+		A9C07C991E2B4AF300B70D8A /* ConvertUTF.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ConvertUTF.c; path = ../tools/typopoi/thirdparty/ConvertUTF.c; sourceTree = "<group>"; };
+		A9C07C9A1E2B4AF300B70D8A /* ConvertUTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConvertUTF.h; path = ../tools/typopoi/thirdparty/ConvertUTF.h; sourceTree = "<group>"; };
+		A9C07C9C1E2B4B5200B70D8A /* FileSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileSystem.cpp; path = ../tools/typopoi/sources/FileSystem.cpp; sourceTree = "<group>"; };
+		A9C07C9D1E2B4B5200B70D8A /* FileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileSystem.h; path = ../tools/typopoi/sources/FileSystem.h; sourceTree = "<group>"; };
+		A9C07C9F1E2B4B5B00B70D8A /* CommandLineParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CommandLineParser.cpp; path = ../tools/typopoi/sources/CommandLineParser.cpp; sourceTree = "<group>"; };
+		A9C07CA01E2B4B5B00B70D8A /* CommandLineParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommandLineParser.h; path = ../tools/typopoi/sources/CommandLineParser.h; sourceTree = "<group>"; };
+		A9C07CA21E2B4B8000B70D8A /* Defer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Defer.h; path = ../tools/typopoi/sources/Defer.h; sourceTree = "<group>"; };
+		A9C07CA31E2B4BA600B70D8A /* Optional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Optional.h; path = ../tools/typopoi/sources/Optional.h; sourceTree = "<group>"; };
+		A9C07CA41E2B4BC600B70D8A /* StringHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StringHelper.cpp; path = ../tools/typopoi/sources/StringHelper.cpp; sourceTree = "<group>"; };
+		A9C07CA51E2B4BC600B70D8A /* StringHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StringHelper.h; path = ../tools/typopoi/sources/StringHelper.h; sourceTree = "<group>"; };
+		A9C07CA71E2B4C8C00B70D8A /* SourceRange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SourceRange.h; path = ../tools/typopoi/sources/SourceRange.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -24,13 +77,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9C07C7E1E2B409300B70D8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9C07C971E2B4A5000B70D8A /* libtypopoi.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		A9AB7E2B1E279EFE00E3D1A6 = {
 			isa = PBXGroup;
 			children = (
-				A9AB7E361E279EFE00E3D1A6 /* typopoi */,
+				A9AB7E361E279EFE00E3D1A6 /* libtypopoi */,
+				A9C07C881E2B447600B70D8A /* typopoi */,
 				A9AB7E351E279EFE00E3D1A6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -39,18 +101,54 @@
 			isa = PBXGroup;
 			children = (
 				A9AB7E851E27A03D00E3D1A6 /* libtypopoi.a */,
+				A9C07C811E2B409300B70D8A /* typopoi */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A9AB7E361E279EFE00E3D1A6 /* typopoi */ = {
+		A9AB7E361E279EFE00E3D1A6 /* libtypopoi */ = {
 			isa = PBXGroup;
 			children = (
 				A9AB7EA01E28024200E3D1A6 /* SpellChecker.cpp */,
 				A9AB7EA11E28024200E3D1A6 /* SpellChecker.h */,
 			);
-			name = typopoi;
+			name = libtypopoi;
 			path = ../typopoi;
+			sourceTree = "<group>";
+		};
+		A9C07C881E2B447600B70D8A /* typopoi */ = {
+			isa = PBXGroup;
+			children = (
+				A9C07C981E2B4AE800B70D8A /* thirdparty */,
+				A9C07C9F1E2B4B5B00B70D8A /* CommandLineParser.cpp */,
+				A9C07CA01E2B4B5B00B70D8A /* CommandLineParser.h */,
+				A9C07C891E2B4A4000B70D8A /* ConsoleColor.cpp */,
+				A9C07C8A1E2B4A4000B70D8A /* ConsoleColor.h */,
+				A9C07CA21E2B4B8000B70D8A /* Defer.h */,
+				A9C07C9C1E2B4B5200B70D8A /* FileSystem.cpp */,
+				A9C07C9D1E2B4B5200B70D8A /* FileSystem.h */,
+				A9C07C8B1E2B4A4000B70D8A /* main.cpp */,
+				A9C07CA31E2B4BA600B70D8A /* Optional.h */,
+				A9C07CA71E2B4C8C00B70D8A /* SourceRange.h */,
+				A9C07CA41E2B4BC600B70D8A /* StringHelper.cpp */,
+				A9C07CA51E2B4BC600B70D8A /* StringHelper.h */,
+				A9C07C8C1E2B4A4000B70D8A /* Typo.cpp */,
+				A9C07C8D1E2B4A4000B70D8A /* Typo.h */,
+				A9C07C8E1E2B4A4000B70D8A /* WordDiff.cpp */,
+				A9C07C8F1E2B4A4000B70D8A /* WordDiff.h */,
+				A9C07C901E2B4A4000B70D8A /* WordSegmenter.cpp */,
+				A9C07C911E2B4A4000B70D8A /* WordSegmenter.h */,
+			);
+			name = typopoi;
+			sourceTree = "<group>";
+		};
+		A9C07C981E2B4AE800B70D8A /* thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				A9C07C991E2B4AF300B70D8A /* ConvertUTF.c */,
+				A9C07C9A1E2B4AF300B70D8A /* ConvertUTF.h */,
+			);
+			name = thirdparty;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -66,9 +164,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A9AB7E841E27A03D00E3D1A6 /* typopoi */ = {
+		A9AB7E841E27A03D00E3D1A6 /* libtypopoi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A9AB7E8D1E27A03D00E3D1A6 /* Build configuration list for PBXNativeTarget "typopoi" */;
+			buildConfigurationList = A9AB7E8D1E27A03D00E3D1A6 /* Build configuration list for PBXNativeTarget "libtypopoi" */;
 			buildPhases = (
 				A9AB7E811E27A03D00E3D1A6 /* Sources */,
 				A9AB7E821E27A03D00E3D1A6 /* Frameworks */,
@@ -78,10 +176,28 @@
 			);
 			dependencies = (
 			);
-			name = typopoi;
+			name = libtypopoi;
 			productName = typopoi;
 			productReference = A9AB7E851E27A03D00E3D1A6 /* libtypopoi.a */;
 			productType = "com.apple.product-type.library.static";
+		};
+		A9C07C801E2B409300B70D8A /* typopoi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9C07C851E2B409300B70D8A /* Build configuration list for PBXNativeTarget "typopoi" */;
+			buildPhases = (
+				A9C07C7D1E2B409300B70D8A /* Sources */,
+				A9C07C7E1E2B409300B70D8A /* Frameworks */,
+				A9C07C7F1E2B409300B70D8A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9C07CA91E2B559A00B70D8A /* PBXTargetDependency */,
+			);
+			name = typopoi;
+			productName = typopoi;
+			productReference = A9C07C811E2B409300B70D8A /* typopoi */;
+			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
@@ -93,6 +209,10 @@
 				ORGANIZATIONNAME = mogemimi;
 				TargetAttributes = {
 					A9AB7E841E27A03D00E3D1A6 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					A9C07C801E2B409300B70D8A = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 					};
@@ -110,7 +230,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A9AB7E841E27A03D00E3D1A6 /* typopoi */,
+				A9AB7E841E27A03D00E3D1A6 /* libtypopoi */,
+				A9C07C801E2B409300B70D8A /* typopoi */,
 			);
 		};
 /* End PBXProject section */
@@ -124,7 +245,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9C07C7D1E2B409300B70D8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9C07C961E2B4A4000B70D8A /* WordSegmenter.cpp in Sources */,
+				A9C07C941E2B4A4000B70D8A /* Typo.cpp in Sources */,
+				A9C07CA11E2B4B5B00B70D8A /* CommandLineParser.cpp in Sources */,
+				A9C07C931E2B4A4000B70D8A /* main.cpp in Sources */,
+				A9C07C9E1E2B4B5200B70D8A /* FileSystem.cpp in Sources */,
+				A9C07C951E2B4A4000B70D8A /* WordDiff.cpp in Sources */,
+				A9C07C921E2B4A4000B70D8A /* ConsoleColor.cpp in Sources */,
+				A9C07C9B1E2B4AF300B70D8A /* ConvertUTF.c in Sources */,
+				A9C07CA61E2B4BC600B70D8A /* StringHelper.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9C07CA91E2B559A00B70D8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9AB7E841E27A03D00E3D1A6 /* libtypopoi */;
+			targetProxy = A9C07CA81E2B559A00B70D8A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A9AB7E3D1E279EFE00E3D1A6 /* Debug */ = {
@@ -218,7 +363,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
-				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_PREFIX = "";
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
@@ -230,10 +375,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
-				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_PREFIX = "";
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A9C07C861E2B409300B70D8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				GCC_C_LANGUAGE_STANDARD = c11;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../tools/typopoi";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A9C07C871E2B409300B70D8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				GCC_C_LANGUAGE_STANDARD = c11;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../tools/typopoi";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -250,11 +415,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A9AB7E8D1E27A03D00E3D1A6 /* Build configuration list for PBXNativeTarget "typopoi" */ = {
+		A9AB7E8D1E27A03D00E3D1A6 /* Build configuration list for PBXNativeTarget "libtypopoi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A9AB7E8E1E27A03D00E3D1A6 /* Debug */,
 				A9AB7E8F1E27A03D00E3D1A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9C07C851E2B409300B70D8A /* Build configuration list for PBXNativeTarget "typopoi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9C07C861E2B409300B70D8A /* Debug */,
+				A9C07C871E2B409300B70D8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

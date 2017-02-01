@@ -52,6 +52,30 @@ spellChecker.Suggest(u8"GetDeferedRenderer");
 spellChecker.Suggest(u8"refrence_count");
 ```
 
+#### API
+
+## Build for Mac OS X
+
+```shell
+# Build executable with Xcode
+xcodebuild -project projects/typopoi.xcodeproj -target libtypopoi -configuration Release
+```
+
+```shell
+# Build executable with Xcode
+xcodebuild -project projects/typopoi.xcodeproj -target typopoi -configuration Release
+
+# Installation
+cp build/Release/typopoi typopoi
+
+# Run
+.typopoi -help
+```
+
+## Standalone command line tool
+
+`tools` directory
+
 ## Thanks
 
 The following libraries and/or open source projects were used in typopoi:
