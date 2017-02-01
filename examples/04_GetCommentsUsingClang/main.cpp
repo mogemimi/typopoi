@@ -46,83 +46,64 @@ static cl::extrahelp MoreHelp("\nMore help text...");
 namespace {
 
 class MyPrinter final {
+private:
+    std::string previousFilePath;
+
 public:
-    void Print(const std::string& s)
+    void Print(const std::string& s, const std::string& filePath)
     {
-        std::cout << s << std::endl;
+        if (previousFilePath != filePath) {
+            if (!previousFilePath.empty()) {
+                std::cout << std::endl;
+            }
+            std::cout << filePath << ":" << std::endl;
+            previousFilePath = filePath;
+        }
+        std::cout << "    " << s << std::endl;
     }
 };
 
 class MyCommentHandler final : public clang::CommentHandler {
 private:
-    llvm::StringRef inputFile;
-    MyPrinter & printer = nullptr;
+    llvm::StringRef filePath;
+    MyPrinter & printer;
 
 public:
-    void SetFile(llvm::StringRef fileIn)
+    explicit MyCommentHandler(MyPrinter & printerIn)
+        : printer(printerIn)
     {
-        inputFile = fileIn;
     }
 
-    void SetPrinter(MyPrinter* printerIn)
+    void SetFile(llvm::StringRef filePathIn)
     {
-        printer = printerIn;
+        filePath = filePathIn;
     }
 
-    bool HandleComment(clang::Preprocessor& pp, clang::SourceRange range) override
+    bool HandleComment(clang::Preprocessor & pp, clang::SourceRange range) override
     {
         clang::SourceManager& sm = pp.getSourceManager();
-        if (sm.getFilename(range.getBegin()) != inputFile) {
+        if (sm.getFilename(range.getBegin()) != filePath) {
             return false;
         }
-        assert(sm.getFilename(range.getBegin()) == inputFile);
 
         const auto startLoc = sm.getDecomposedLoc(range.getBegin());
         const auto endLoc = sm.getDecomposedLoc(range.getEnd());
         const auto fileData = sm.getBufferData(startLoc.first);
 
-        assert(printer != nullptr);
-        auto sourceString = fileData.substr(startLoc.second, endLoc.second - startLoc.second).str();
-        std::cout << inputFile << std::endl;
-        std::cout << sourceString << std::endl;
+        auto comment = fileData.substr(startLoc.second, endLoc.second - startLoc.second).str();
+        printer.Print(comment, filePath);
 
         return false;
     }
 };
 
 class MyASTConsumer final : public ASTConsumer {
-public:
-    explicit MyASTConsumer(MyPrinter & printerIn)
-        : printer(printerIn)
-    {
-    }
-
-    void HandleTranslationUnit(ASTContext& context) override
-    {
-        matcher.matchAST(context);
-    }
-
-    bool HandleTopLevelDecl(clang::DeclGroupRef d) override
-    {
-        for (auto & iter : d) {
-            auto fd = llvm::dyn_cast<clang::NamedDecl>(iter);
-            if (fd) {
-                std::string identifier = fd->getDeclName().getAsString();
-                printer.Print(identifier);
-            }
-        }
-        return true;
-    }
-
-private:
-    MatchFinder matcher;
-    MyPrinter & printer;
 };
 
 class MyFrontendAction final : public ASTFrontendAction {
 public:
     explicit MyFrontendAction(MyPrinter & printerIn)
-        : printer(printerIn)
+        : commentHandler(printerIn)
     {
     }
 
@@ -130,13 +111,11 @@ public:
     CreateASTConsumer(CompilerInstance & ci, StringRef file) override
     {
         commentHandler.SetFile(file);
-        commentHandler.SetPrinter(&printer);
         ci.getPreprocessor().addCommentHandler(&commentHandler);
-        return std::make_unique<MyASTConsumer>(printer);
+        return std::make_unique<MyASTConsumer>();
     }
 
 private:
-    MyPrinter & printer;
     MyCommentHandler commentHandler;
 };
 

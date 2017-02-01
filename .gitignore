@@ -13,6 +13,7 @@ projects/**/[Rr]elease/
 ## Build results for examples
 
 examples/03_HelloClangLibTooling/03_HelloClangLibTooling
+examples/04_GetCommentsUsingClang/04_GetCommentsUsingClang
 
 ## CMake
 CMakeCache.txt

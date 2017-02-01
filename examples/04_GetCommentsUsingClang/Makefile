@@ -15,7 +15,7 @@ CXXFLAGS = \
 	-fno-exceptions \
 	-fno-rtti
 LDFLAGS = -L$(CLANG_DIR)/lib
-PRODUCT_NAME = 03_HelloClangLibTooling
+PRODUCT_NAME = 04_GetCommentsUsingClang
 SOURCES = \
 	../../SpellChecker.cpp \
 	main.cpp
