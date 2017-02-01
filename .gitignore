@@ -14,6 +14,7 @@ projects/**/[Rr]elease/
 
 examples/03_HelloClangLibTooling/03_HelloClangLibTooling
 examples/04_GetCommentsUsingClang/04_GetCommentsUsingClang
+examples/05_GetVariablesFromAST/05_GetVariablesFromAST
 
 ## CMake
 CMakeCache.txt

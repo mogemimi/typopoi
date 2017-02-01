@@ -1,4 +1,4 @@
-# Example 04. Get Comments Using LibTooling
+# Example 04. Get comments using LibTooling
 
 ## Download LLVM Clang
 
