@@ -10,6 +10,10 @@ projects/build/
 projects/**/[Dd]ebug/
 projects/**/[Rr]elease/
 
+## Build results for examples
+
+examples/03_HelloClangLibTooling/03_HelloClangLibTooling
+
 ## CMake
 CMakeCache.txt
 CMakeFiles
