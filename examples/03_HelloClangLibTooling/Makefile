@@ -4,7 +4,7 @@
 CLANG_DIR = /usr/local/opt/clang+llvm
 
 CXX = clang++
-CXXFLAGS = \
+override CXXFLAGS += \
 	-std=c++14 \
 	-O2 \
 	-Wall \
